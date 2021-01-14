@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  ddclient:
+  dynuiuc:
     image: go2engle/dynuiuc
     container_name: dynuiuc
     volumes:
