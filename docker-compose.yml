@@ -1,0 +1,8 @@
+version: "2.1"
+services:
+  ddclient:
+    image: go2engle/dynuiuc
+    container_name: dynuiuc
+    volumes:
+      - dynuiuc_config:/etc/dynuiuc
+    restart: unless-stopped
