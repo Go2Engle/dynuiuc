@@ -3,6 +3,7 @@ services:
   dynuiuc:
     image: go2engle/dynuiuc
     container_name: dynuiuc
-    volumes:
-      - dynuiuc_config:/etc/dynuiuc
+    environment:
+      - USERNAME=Your_username
+      - PASSWORD=Your_password
     restart: unless-stopped
