@@ -15,6 +15,7 @@ COPY ./dynuiuc-template.conf /etc/dynuiuc/dynuiuc-template.conf
 
 #Copy entrypoint script
 COPY ./docker-entrypoint.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 
 # log file
 RUN touch /var/log/dynuiuc.log
@@ -29,7 +30,7 @@ ENV IPV6=true
 ENV QUIET=false
 
 # Run entrypoint script to replace variables in dynuiuc-template
-ENTRYPOINT [ "docker-entrypoint.sh" ]
+ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
 
 # Start Dynuiuc with the specified files
 CMD /usr/bin/dynuiuc --conf_file /etc/dynuiuc/dynuiuc.conf --log_file /var/log/dynuiuc.log --pid_file /var/run/dynuiuc.pid
