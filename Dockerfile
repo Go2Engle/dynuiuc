@@ -11,16 +11,25 @@ RUN wget https://www.dynu.com/support/downloadfile/31 -qO setup && \
 
 # config
 RUN mkdir -p /etc/dynuiuc/
-COPY ./dynuiuc.conf /etc/dynuiuc/dynuiuc.conf
+COPY ./dynuiuc-template.conf /etc/dynuiuc/dynuiuc-template.conf
+
+#Copy entrypoint script
+COPY ./docker-entrypoint.sh /usr/local/bin/
 
 # log file
 RUN touch /var/log/dynuiuc.log
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/dynuiuc.log
 
-# ENV variables
-ENV USERNAME=username
-ENV PASSWORD=password
+# Set default ENV variables
+ENV POLLINTERVAL=120
+ENV DEBUG=false
+ENV IPV4=true
+ENV IPV6=true
+ENV QUIET=false
+
+# Run entrypoint script to replace variables in dynuiuc-template
+ENTRYPOINT [ "docker-entrypoint.sh" ]
 
 # Start Dynuiuc with the specified files
-CMD envsubst < /etc/dynuiuc/dynuiuc.conf | sponge /etc/dynuiuc/dynuiuc.conf ; /usr/bin/dynuiuc --conf_file /etc/dynuiuc/dynuiuc.conf --log_file /var/log/dynuiuc.log --pid_file /var/run/dynuiuc.pid
+CMD /usr/bin/dynuiuc --conf_file /etc/dynuiuc/dynuiuc.conf --log_file /var/log/dynuiuc.log --pid_file /var/run/dynuiuc.pid
