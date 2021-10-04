@@ -23,9 +23,9 @@ jobs:
         uses: docker/login-action@v1.10.0
         with:
           # Username used to log against the Docker registry
-          username: $DOCKER_USER
+          username: ${{ secrets.DOCKER_USER }}
           # Password or personal access token used to log against the Docker registry
-          password: $DOCKER_PASS
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
