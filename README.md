@@ -14,6 +14,7 @@ Other environment variables that can be set and there defaults are listed below
 | QUIET  | false  |
 | USERNAME | null |
 | PASSWORD | null |
+| LOCATION | null |
 
 Make sure to update the below commands with your correct username and password.
 
