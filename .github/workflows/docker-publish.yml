@@ -1,4 +1,4 @@
-name: Docker
+name: Docker build and publish to ghcr
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -63,6 +63,6 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: latest #${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
