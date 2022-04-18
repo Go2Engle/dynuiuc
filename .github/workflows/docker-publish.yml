@@ -8,6 +8,8 @@ name: Docker build and publish to ghcr
 on:
   push:
     branches: [ main ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ main ]
 
