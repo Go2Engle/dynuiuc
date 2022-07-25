@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   dynuiuc:
-    image: go2engle/dynuiuc
+    image: ghcr.io/go2engle/dynuiuc:1.1
     container_name: dynuiuc
     environment:
       - USERNAME=Your_username
