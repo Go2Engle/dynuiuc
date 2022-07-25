@@ -18,13 +18,13 @@ Other environment variables that can be set and there defaults are listed below
 
 Make sure to update the below commands with your correct username and password.
 
-`docker run -d --name dynuiuc -e "USERNAME=Your_Username" -e "PASSWORD=Your_Password" go2engle/dynuiuc:latest`
+`docker run -d --name dynuiuc -e "USERNAME=Your_Username" -e "PASSWORD=Your_Password" ghcr.io/go2engle/dynuiuc:1.1`
 
 ```
 version: "2.1"
 services:
   dynuiuc:
-    image: go2engle/dynuiuc
+    image: ghcr.io/go2engle/dynuiuc:1.1
     container_name: dynuiuc
     environment:
       - USERNAME=Your_username
