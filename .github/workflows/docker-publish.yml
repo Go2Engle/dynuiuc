@@ -7,6 +7,12 @@ name: Docker build and publish to ghcr
 
 on:
   push:
+    paths-ignore:
+      - 'README.md'
+      - 'docker-compose.yml'
+      - 'renovate.json'
+      - '.dockerignore'
+      - '.github/'
     branches: [ main ]
     tags:
       - 'v*'

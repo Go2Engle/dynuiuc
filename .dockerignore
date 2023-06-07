@@ -1,0 +1,4 @@
+.github/
+renovate.json
+README.md
+docker-compose.yml
